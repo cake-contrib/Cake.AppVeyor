@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Refit;
 using System.Collections.Generic;
-using Cake.AppVeyor.Models;
 using System.Net.Http;
 using System.Threading;
 using System.Net.Http.Headers;
