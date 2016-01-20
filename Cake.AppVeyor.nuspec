@@ -24,8 +24,8 @@
    </metadata>
 
    <files>
-      <file src="./Cake.Json/bin/Release/Cake.Json.dll" target="lib/net45" />
-      <file src="./Cake.Json/bin/Release/Cake.Json.xml" target="lib/net45" />
+      <file src="./Cake.AppVeyor/bin/Release/Cake.AppVeyor.dll" target="lib/net45" />
+      <file src="./Cake.AppVeyor/bin/Release/Cake.AppVeyor.xml" target="lib/net45" />
       <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.dll" target="lib/net45" /> 
       <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.xml" target="lib/net45" />
       <file src="./packages/refit.2.4.1/lib/Net45/Refit.dll" target="lib/net45" />
