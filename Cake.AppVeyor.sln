@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AppVeyor", "Cake.AppVeyor\Cake.AppVeyor.csproj", "{4C17304B-F2D3-4681-97EA-2B669811E247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AppVeyor.Tests", "Cake.AppVeyor.Tests\Cake.AppVeyor.Tests.csproj", "{698804E5-4BEB-4076-89A1-255A2646B9FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C17304B-F2D3-4681-97EA-2B669811E247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C17304B-F2D3-4681-97EA-2B669811E247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C17304B-F2D3-4681-97EA-2B669811E247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C17304B-F2D3-4681-97EA-2B669811E247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{698804E5-4BEB-4076-89A1-255A2646B9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698804E5-4BEB-4076-89A1-255A2646B9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698804E5-4BEB-4076-89A1-255A2646B9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698804E5-4BEB-4076-89A1-255A2646B9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

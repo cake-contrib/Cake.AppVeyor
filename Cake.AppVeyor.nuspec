@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+      <id>Cake.AppVeyor</id>
+      <version>$version$</version>
+      <authors>Redth</authors>
+      <owners>Redth</owners>
+      <title>Cake.Json</title>
+      <description>Cake Build addin for AppVeyor API's.</description>
+      <summary>AppVeyor API's addin for cake build.</summary>
+      <licenseUrl>https://raw.githubusercontent.com/Redth/Cake.AppVeyor/master/LICENSE.md</licenseUrl>
+      <projectUrl>https://github.com/Redth/Cake.AppVeyor</projectUrl>
+      <iconUrl>https://raw.githubusercontent.com/Redth/Cake.AppVeyor/master/icon.png</iconUrl>
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <copyright>Copyright (c) Redth 2015</copyright>
+      <releaseNotes>Initial Release</releaseNotes>
+      <tags>Cake Script Build AppVeyor</tags>
+
+      <dependencies>
+         <dependency id="Cake.Core" version="0.8.0" />
+         <dependency id="Newtonsoft.Json" version="6.0.5" />
+         <dependency id="refit" version="2.4.1" />
+      </dependencies>
+   </metadata>
+
+   <files>
+      <file src="./Cake.Json/bin/Release/Cake.Json.dll" target="lib/net45" />
+      <file src="./Cake.Json/bin/Release/Cake.Json.xml" target="lib/net45" />
+      <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.dll" target="lib/net45" /> 
+      <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.xml" target="lib/net45" />
+      <file src="./packages/refit.2.4.1/lib/Net45/Refit.dll" target="lib/net45" />
+   </files>
+</package>
