@@ -41,7 +41,7 @@ namespace Cake.AppVeyor.Tests
 
         public string GetLogs ()
         {
-            return string.Join(Environment.NewLine, log.Entries);
+            return string.Join(System.Environment.NewLine, log.Entries);
         }
 
         public void DumpLogs ()
