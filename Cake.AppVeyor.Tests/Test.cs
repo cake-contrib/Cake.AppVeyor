@@ -25,7 +25,7 @@ namespace Cake.AppVeyor.Tests
         [Test]
         public void GetProjects ()
         {
-            var projects = context.CakeContext.GetProjects (new AppVeyorSettings { ApiToken = Keys.AppVeyorApiToken });
+            var projects = context.CakeContext.AppVeyorProjects (new AppVeyorSettings { ApiToken = Keys.AppVeyorApiToken });
 
             Assert.IsNotNull (projects);
             Assert.Greater (projects.Count, 0);
@@ -42,19 +42,19 @@ namespace Cake.AppVeyor.Tests
                 ApiToken = Keys.AppVeyorApiToken
             };
 
-            var pageOne = context.CakeContext.GetProjectHistory (s, accountName, projectSlug, pageSize);
+            var pageOne = context.CakeContext.AppVeyorProjectHistory (s, accountName, projectSlug, pageSize);
             Assert.IsNotNull (pageOne);
             Assert.Greater (pageOne.Builds.Count, 0);
             Console.WriteLine (string.Join (", ", from b in pageOne.Builds select b.BuildId));
 
             var lastBuild = pageOne.Builds.Last ();
 
-            var pageTwo = context.CakeContext.GetProjectHistory (s, accountName, projectSlug, pageSize, lastBuild.BuildId);
+            var pageTwo = context.CakeContext.AppVeyorProjectHistory (s, accountName, projectSlug, pageSize, lastBuild.BuildId);
             Assert.IsNotNull (pageTwo);
             Assert.Greater (pageTwo.Builds.Count, 0);
             Console.WriteLine (string.Join (", ", from b in pageTwo.Builds select b.BuildId));
 
-            var allOnOne = context.CakeContext.GetProjectHistory (s, accountName, projectSlug, pageSize * 2);
+            var allOnOne = context.CakeContext.AppVeyorProjectHistory (s, accountName, projectSlug, pageSize * 2);
             Assert.IsNotNull (allOnOne);
             Assert.Greater (allOnOne.Builds.Count, 0);
             Assert.AreEqual (pageOne.Builds.Count + pageTwo.Builds.Count, allOnOne.Builds.Count);
@@ -71,7 +71,7 @@ namespace Cake.AppVeyor.Tests
                 ApiToken = Keys.AppVeyorApiToken
             };
 
-            var last = context.CakeContext.GetProjectLastSuccessfulBuild (s, accountName, projectSlug, null, 2350947);
+            var last = context.CakeContext.AppVeyorProjectLastSuccessfulBuild (s, accountName, projectSlug, null, 2350947);
             Assert.IsNotNull (last);
             Assert.AreEqual (2331918, last.Build.BuildId);
         }
