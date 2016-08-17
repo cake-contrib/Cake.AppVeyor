@@ -13,6 +13,36 @@ namespace Cake.AppVeyor
     public static class AppVeyorAliases
     {
         /// <summary>
+        /// Clears the AppVeyor Cache
+        /// </summary>
+        /// <returns>The projects.</returns>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">The settings.</param>
+        /// <param name="accountName">The account name.</param>
+        /// <param name="projectSlug">The project slug.</param>
+        [CakeMethodAlias]
+        public static void AppVeyorClearCache(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug)
+        {
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            appVeyor.ClearCache (accountName, projectSlug);
+        }
+
+        /// <summary>
+        /// Gets all projects
+        /// </summary>
+        /// <returns>The projects.</returns>
+        /// <param name="context">The context.</param>
+        /// <param name="appVeyorApiToken">The API Token.</param>
+        /// <param name="accountName">The account name.</param>
+        /// <param name="projectSlug">The project slug.</param>
+        [CakeMethodAlias]
+        public static void AppVeyorClearCache(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug)
+        {
+            var appVeyor = AppVeyorClient.Create(appVeyorApiToken);
+            appVeyor.ClearCache (accountName, projectSlug);
+        }
+
+        /// <summary>
         /// Gets all projects
         /// </summary>
         /// <returns>The projects.</returns>

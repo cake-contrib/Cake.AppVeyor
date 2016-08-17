@@ -15,14 +15,17 @@ namespace Cake.AppVeyor
         public static IAppVeyorApi Create (string authToken)
         {
             return RestService.For<IAppVeyorApi> (
-                new HttpClient(new AuthenticatedHttpClientHandler (authToken)) { 
-                    BaseAddress = new Uri(baseUrl) 
+                new HttpClient(new AuthenticatedHttpClientHandler (authToken)) {
+                    BaseAddress = new Uri(baseUrl)
                 });
         }
     }
 
     interface IAppVeyorApi
     {
+        [Delete("/api/projects/{accountName}/{projectSlug}/buildcache")]
+        Task ClearCache (string accountName, string projectSlug);
+
         [Get("/api/projects")]
         Task<List<AppVeyorProject>> GetProjects ();
 
@@ -42,7 +45,7 @@ namespace Cake.AppVeyor
         Task<AppVeyorProjectDeployments> GetProjectDeployments (string accountName, string projectSlug);
 
         [Post ("/api/builds")]
-        Task<AppVeyorBuild> StartBuildLatestCommit ([Body]AppVeyorBuildRequestLatestCommit buildRequest); 
+        Task<AppVeyorBuild> StartBuildLatestCommit ([Body]AppVeyorBuildRequestLatestCommit buildRequest);
 
         [Post ("/api/builds")]
         Task<AppVeyorBuild> StartBuildSpecificCommit ([Body]AppVeyorBuildRequestSpecificCommit buildRequest);
