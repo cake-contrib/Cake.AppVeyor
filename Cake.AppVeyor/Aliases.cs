@@ -24,7 +24,7 @@ namespace Cake.AppVeyor
         public static void AppVeyorClearCache(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug)
         {
             var appVeyor = AppVeyorClient.Create(settings.ApiToken);
-            appVeyor.ClearCache (accountName, projectSlug);
+            appVeyor.ClearCache (accountName, projectSlug).Wait();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Cake.AppVeyor
         public static void AppVeyorClearCache(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug)
         {
             var appVeyor = AppVeyorClient.Create(appVeyorApiToken);
-            appVeyor.ClearCache (accountName, projectSlug);
+            appVeyor.ClearCache (accountName, projectSlug).Wait();
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets the last build on the specified branch of the project 
+        /// Gets the last build on the specified branch of the project
         /// </summary>
         /// <returns>The project's last successful build on the branch.</returns>
         /// <param name="context">The context.</param>
@@ -292,7 +292,7 @@ namespace Cake.AppVeyor
         public static void AppVeyorCancelBuild (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string buildVersion)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
-            appVeyor.CancelBuild (accountName, projectSlug, buildVersion);
+            appVeyor.CancelBuild (accountName, projectSlug, buildVersion).Wait();
         }
 
         /// <summary>
@@ -358,7 +358,7 @@ namespace Cake.AppVeyor
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
             appVeyor.CancelDeployment (new AppVeyorCancelDeploymentRequest {
                 DeploymentId = deploymentId
-            });
+            }).Wait();
         }
 
         /// <summary>
