@@ -18,7 +18,7 @@
 
       <dependencies>
          <dependency id="Cake.Core" version="0.17.0" />
-         <dependency id="Newtonsoft.Json" version="9.0.1" />
+         <dependency id="Newtonsoft.Json" version="6.0.5" />
          <dependency id="refit" version="2.4.1" />
       </dependencies>
    </metadata>
@@ -26,8 +26,8 @@
    <files>
       <file src="./Cake.AppVeyor/bin/Release/Cake.AppVeyor.dll" target="lib/net45" />
       <file src="./Cake.AppVeyor/bin/Release/Cake.AppVeyor.xml" target="lib/net45" />
-      <file src="./packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll" target="lib/net45" /> 
-      <file src="./packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.xml" target="lib/net45" />
+      <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.dll" target="lib/net45" /> 
+      <file src="./packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.xml" target="lib/net45" />
       <file src="./packages/refit.2.4.1/lib/Net45/Refit.dll" target="lib/net45" />
    </files>
 </package>
