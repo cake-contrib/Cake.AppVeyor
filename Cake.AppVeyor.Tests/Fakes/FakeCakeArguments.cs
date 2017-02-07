@@ -2,7 +2,7 @@
 using Cake.Core;
 using System.Collections.Generic;
 
-namespace Cake.AppVeyor.Tests
+namespace Cake.AppVeyor.Fakes
 {
     internal sealed class FakeCakeArguments : ICakeArguments
     {
