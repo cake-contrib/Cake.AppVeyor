@@ -17,7 +17,6 @@
       <tags>Cake Script Build AppVeyor</tags>
 
       <dependencies>
-         <dependency id="Cake.Core" version="0.17.0" />
          <dependency id="Newtonsoft.Json" version="6.0.5" />
          <dependency id="refit" version="2.4.1" />
       </dependencies>
