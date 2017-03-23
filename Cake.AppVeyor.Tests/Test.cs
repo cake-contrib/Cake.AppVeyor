@@ -91,7 +91,7 @@ namespace Cake.AppVeyor.Tests
             Assert.IsNotNull (deployment);
         }
 
-        [Test]
+        //[Test]
         public void GetProjectDeployments ()
         {
             var projectDeployments = Cake.AppVeyorProjectDeployments (apiToken, accountName, projectSlug);
@@ -107,7 +107,7 @@ namespace Cake.AppVeyor.Tests
             Assert.True (projectDeployments.Deployments.Any (d => d != null && d.Environment != null && d.Environment.Provider == "NuGet"));
         }
 
-        [Test]
+        //[Test]
         public void GetEnvironmentDeployments ()
         {
             var envDeployments = Cake.AppVeyorEnvironmentDeployments (apiToken, 6662);
