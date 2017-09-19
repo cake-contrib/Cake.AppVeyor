@@ -159,7 +159,7 @@ namespace Cake.AppVeyor
                     break;
 
                 foreach (var build in history.Builds) {
-                    if (build.Status.Equals ("success", StringComparison.InvariantCultureIgnoreCase)) {
+                    if (build.Status.Equals ("success", StringComparison.OrdinalIgnoreCase)) {
                         lastSuccess = new AppVeyorProjectBuild {
                             Project = history.Project,
                             Build = build,

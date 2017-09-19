@@ -91,7 +91,7 @@ namespace Cake.AppVeyor.Tests
             Assert.IsNotNull (deployment);
         }
 
-        //[Test]
+        [Test]
         public void GetProjectDeployments ()
         {
             var projectDeployments = Cake.AppVeyorProjectDeployments (apiToken, accountName, projectSlug);
@@ -101,13 +101,12 @@ namespace Cake.AppVeyor.Tests
             Assert.IsNotNull (projectDeployments.Deployments);
             Assert.Greater (projectDeployments.Deployments.Count, 0);
 
-            Assert.True (projectDeployments.Deployments.Any (d => d != null && d.Deployment != null && d.Deployment.DeploymentId == 202857));
             Assert.AreEqual (projectSlug, projectDeployments.Project.Slug);
 
             Assert.True (projectDeployments.Deployments.Any (d => d != null && d.Environment != null && d.Environment.Provider == "NuGet"));
         }
 
-        //[Test]
+        [Test]
         public void GetEnvironmentDeployments ()
         {
             var envDeployments = Cake.AppVeyorEnvironmentDeployments (apiToken, 6662);
@@ -118,7 +117,6 @@ namespace Cake.AppVeyor.Tests
             Assert.Greater (envDeployments.Deployments.Count, 0);
 
             Assert.True (envDeployments.Deployments.Any (d => d != null && d.Project.Slug == projectSlug));
-            Assert.True (envDeployments.Deployments.Any (d => d != null && d.Deployment.DeploymentId == 202857));
         }
     }
 }

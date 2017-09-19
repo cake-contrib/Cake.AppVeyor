@@ -6,7 +6,7 @@ A set of aliases for http://cakebuild.net to access the AppVeyor API
 You can easily reference Cake.AppVeyor directly in your build script via a cake addin:
 
 ```csharp
-#addin nuget:?package=Cake.AppVeyor
+#addin nuget:?package=Cake.AppVeyor&loaddependencies=true
 ```
 
 ## Aliases

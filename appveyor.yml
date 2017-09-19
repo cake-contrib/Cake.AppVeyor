@@ -1,0 +1,16 @@
+image: Visual Studio 2017
+version: 1.0.4.{build}
+configuration: Release
+environment:
+  appveyor_api_token:
+    secure: RfR7RwXhW4d4XfUUed76tgwwH0DwckCNOQOBVS/JwOM=
+install:
+- set NUGET_VERSION=%APPVEYOR_BUILD_VERSION%
+build_script:
+- ps: .\build.ps1 -Target package
+test:
+  assemblies:
+    - '**\*.Tests.dll'
+artifacts:
+- path: '**\bin\Release\*.nupkg'
+  name: NuGet
