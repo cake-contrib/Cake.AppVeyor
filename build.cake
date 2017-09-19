@@ -1,35 +1,39 @@
-#addin "Cake.FileHelpers"
+#tool nuget:?package=NUnit.ConsoleRunner
 
-var TARGET = Argument ("target", Argument ("t", "Default"));
+var name = "AppVeyor";
+var nugetVersion = Argument ("nuget_version", EnvironmentVariable ("NUGET_VERSION") ?? "9.9.9");
+var target = Argument ("target", "build");
+var configuration = Argument("configuration", EnvironmentVariable ("CONFIGURATION") ?? "Release");
 
-var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "0.0.9999");
-
-Task ("Default").Does (() =>
+Task ("build").Does (() =>
 {
-	NuGetRestore ("./Cake.AppVeyor.sln");
-
-	DotNetBuild ("./Cake.AppVeyor.sln", c => c.Configuration = "Release");
+	MSBuild ($"./Cake.{name}.sln", c => c.Targets.Add ("restore"));
+	MSBuild ($"./Cake.{name}.sln", c => c.Configuration = configuration);
 });
 
-Task ("NuGetPack")
-	.IsDependentOn ("Default")
-	.Does (() =>
+Task ("package").IsDependentOn("build").Does (() =>
 {
-	NuGetPack ("./Cake.AppVeyor.nuspec", new NuGetPackSettings { 
-		Version = version,
-		Verbosity = NuGetVerbosity.Detailed,
-		OutputDirectory = "./",
-		BasePath = "./",
-	});	
+	MSBuild ($"./Cake.{name}/Cake.{name}.csproj", c => {
+		c.Configuration = configuration;
+		c.Targets.Add ("pack");
+		c.Properties.Add ("PackageVersion", new List<string> { nugetVersion });
+		c.Properties.Add ("IncludeSymbols", new List<string> { "true" });
+	});
 });
 
-Task ("InjectKeys").Does (() =>
+Task ("clean").Does (() =>
 {
-	// Get the API Key from the Environment variable
-	var breweryDbApiKey = EnvironmentVariable ("APPVEYOR_APITOKEN") ?? "";
-
-	// Replace the placeholder in our Keys.cs files
-	ReplaceTextInFiles ("./**/Keys.cs", "{APPVEYOR_APITOKEN}", breweryDbApiKey);
+	CleanDirectories ("./**/bin");
+	CleanDirectories ("./**/obj");
 });
 
-RunTarget (TARGET);
+Task("test").IsDependentOn("package").Does(() =>
+{
+	MSBuild ($"./Cake.{name}.Tests/Cake.{name}.Tests.csproj", c => c.Configuration = configuration);
+	NUnit3("./**/bin/"+ configuration + "/**/*.Tests.dll");
+});
+
+Task ("Default")
+	.IsDependentOn ("test");
+
+RunTarget (target);
