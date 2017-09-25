@@ -7,7 +7,16 @@ using Cake.Core;
 namespace Cake.AppVeyor
 {
     /// <summary>
-    /// AppVeyor API related cake aliases.
+    /// <para>AppVeyor API related cake aliases.</para>
+    /// <para>
+    ///  In order to use aliases from this addin, you will need to also reference Refit and Newtonsoft.Json as an addin.
+    ///  Here is what including Cake.AppVeyor in your script should look like:
+    /// <code>
+    /// #addin package:?Cake.AppVeyor
+    /// #addin package:?Refit&mp;version=3.0.0
+    /// #addin package:?Newtonsoft.Json&mp;version=9.0.1
+    /// </code>
+    /// </para>
     /// </summary>
     [CakeAliasCategory ("AppVeyor")]
     public static class AppVeyorAliases

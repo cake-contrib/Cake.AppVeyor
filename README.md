@@ -6,8 +6,13 @@ A set of aliases for http://cakebuild.net to access the AppVeyor API
 You can easily reference Cake.AppVeyor directly in your build script via a cake addin:
 
 ```csharp
-#addin nuget:?package=Cake.AppVeyor&loaddependencies=true
+#addin nuget:?package=Cake.AppVeyor
+#addin nuget:?package=Refit&version=3.0.0
+#addin nuget:?package=Newtonsoft.Json&version=9.0.1
 ```
+
+NOTE: It's very important at this point in time to specify the `Newtonsoft.Json` package *and* the version _9.0.1_ for it, as well as the `Refit` package *and* the version _3.0.0_ for it.
+
 
 ## Aliases
 
