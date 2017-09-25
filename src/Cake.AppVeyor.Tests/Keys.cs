@@ -15,7 +15,7 @@ namespace Cake.AppVeyor.Tests
                 if (appVeyorApiToken == null)
                 {
                     // Check for a local file with a token first
-                    var localFile = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", ".appveyorapitoken");
+                    var localFile = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", ".appveyorapitoken");
                     if (File.Exists(localFile))
                         appVeyorApiToken = File.ReadAllText(localFile);
 
