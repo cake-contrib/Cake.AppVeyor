@@ -1,61 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{698804E5-4BEB-4076-89A1-255A2646B9FF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Cake.AppVeyor.Tests</RootNamespace>
-    <AssemblyName>Cake.AppVeyor.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.22.0" />
-    <PackageReference Include="Cake.Common" Version="0.22.0" />
     <PackageReference Include="Cake.Testing" Version="0.22.0" />
-    <PackageReference Include="NUnit">
-      <Version>3.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="Refit" Version="4.0.1" />
+    <PackageReference Include="Newtonsoft.Json" version="9.0.1" />
+    <PackageReference Include="Refit" version="4.0.1" />
+    <PackageReference Include="xunit" Version="2.3.0-beta5-build3769" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0-beta5-build3769" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Test.cs" />
-    <Compile Include="Keys.cs" />
-    <Compile Include="TestFixtureBase.cs" />
-    <Compile Include="Fakes\FakeCakeArguments.cs" />
-    <Compile Include="Fakes\FakeCakeLog.cs" />
-    <Compile Include="Fakes\FakeCakeContext.cs" />
+    <ProjectReference Include="..\Cake.AppVeyor\Cake.AppVeyor.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.AppVeyor\Cake.AppVeyor.csproj">
-      <Project>{4C17304B-F2D3-4681-97EA-2B669811E247}</Project>
-      <Name>Cake.AppVeyor</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
+
 </Project>
