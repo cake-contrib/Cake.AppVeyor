@@ -22,7 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.22.0" />
     <PackageReference Include="Cake.Common" Version="0.22.0" />
-    <PackageReference Include="Refit" Version="4.0.1" />
+    <PackageReference Include="Refit" Version="3.0.0" />
   </ItemGroup>
  
 </Project>
