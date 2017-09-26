@@ -1,5 +1,5 @@
 environment:
-  appveyor_api_token:
+  test_appveyor_api_token:
     secure: vJntliZhY34wDY8ERUBFNtDYDykoBArjD23Hq3hfN+0=
     
 #---------------------------------#
