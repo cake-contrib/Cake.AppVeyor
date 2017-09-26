@@ -21,7 +21,7 @@ namespace Cake.AppVeyor.Tests
 
                     // Next check for an environment variable
                     if (string.IsNullOrEmpty(appVeyorApiToken))
-                        appVeyorApiToken = Environment.GetEnvironmentVariable("appveyor_api_token");
+                        appVeyorApiToken = Environment.GetEnvironmentVariable("test_appveyor_api_token");
 
                     // Finally use the const value
                     if (string.IsNullOrEmpty(appVeyorApiToken))
