@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.1</NetStandardImplicitPackageVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -14,14 +14,14 @@
     <PackageTags>Cake Script Build</PackageTags>
     <Authors>Redth</Authors>
     <Owners>Redth</Owners>
-    <PackageProjectUrl>https://github.com/redth/Cake.AppVeyor</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/redth/Cake.AppVeyor/master/icon.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/redth/Cake.AppVeyor/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/cake-contrib/Cake.AppVeyor</PackageProjectUrl>
+    <PackageIconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/cake-contrib/Cake.AppVeyor/master/LICENSE.md</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.26.0" />
-    <PackageReference Include="Cake.Common" Version="0.26.0" />
+    <PackageReference Include="Cake.Core" Version="0.28.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Common" Version="0.28.0" PrivateAssets="All" />
     <PackageReference Include="Refit" Version="3.0.0" />
   </ItemGroup>
  
