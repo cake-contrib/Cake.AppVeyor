@@ -7,11 +7,11 @@ You can easily reference Cake.AppVeyor directly in your build script via a cake 
 
 ```csharp
 #addin nuget:?package=Cake.AppVeyor
-#addin nuget:?package=Refit&version=3.0.0
-#addin nuget:?package=Newtonsoft.Json&version=9.0.1
+#addin nuget:?package=Refit&version=4.6.58
+#addin nuget:?package=Newtonsoft.Json&version=11.0.2
 ```
 
-NOTE: It's very important at this point in time to specify the `Newtonsoft.Json` package *and* the version _9.0.1_ for it, as well as the `Refit` package *and* the version _3.0.0_ for it.
+NOTE: It's very important at this point in time to specify the `Newtonsoft.Json` package *and* the version _11.0.2_ for it, as well as the `Refit` package *and* the version _4.6.58_ for it.
 
 
 ## Aliases
