@@ -15,7 +15,7 @@
     <Authors>Redth</Authors>
     <Owners>Redth</Owners>
     <PackageProjectUrl>https://github.com/redth/Cake.AppVeyor</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/redth/Cake.AppVeyor/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/redth/Cake.AppVeyor/master/LICENSE.md</PackageLicenseUrl>
   </PropertyGroup>
 
