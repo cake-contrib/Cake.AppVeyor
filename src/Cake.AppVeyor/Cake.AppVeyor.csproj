@@ -14,9 +14,11 @@
     <PackageTags>Cake Script Build</PackageTags>
     <Authors>Redth</Authors>
     <Owners>Redth</Owners>
+    <RepositoryUrl>https://github.com/cake-contrib/Cake.AppVeyor.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/redth/Cake.AppVeyor</PackageProjectUrl>
     <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/redth/Cake.AppVeyor/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
