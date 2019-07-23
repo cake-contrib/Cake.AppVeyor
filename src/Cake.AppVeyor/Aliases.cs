@@ -13,8 +13,8 @@ namespace Cake.AppVeyor
     ///  Here is what including Cake.AppVeyor in your script should look like:
     /// <code>
     /// #addin package:?Cake.AppVeyor
-    /// #addin package:?Refit&amp;version=3.0.0
-    /// #addin package:?Newtonsoft.Json&amp;version=9.0.1
+    /// #addin package:?Refit&amp;version=4.6.58
+    /// #addin package:?Newtonsoft.Json&amp;version=11.0.2
     /// </code>
     /// </para>
     /// </summary>

@@ -4,31 +4,33 @@ using Cake.Core;
 using System.Collections.Generic;
 using Cake.Core.Tooling;
 using Cake.Testing;
+using NSubstitute;
 
 namespace Cake.AppVeyor.Fakes
 {
 	public class FakeCakeContext
 	{
 		ICakeContext context;
-		FakeCakeLog log;
+		FakeLog log;
 		DirectoryPath testsDir;
 
 		public FakeCakeContext()
 		{
 			testsDir = new DirectoryPath(System.IO.Path.GetFullPath(AppContext.BaseDirectory));
 
-			log = new FakeCakeLog();
+			log = new FakeLog();
 			var fileSystem = new FileSystem();
 			var environment = new CakeEnvironment(new CakePlatform(), new CakeRuntime(), log);
 			var globber = new Globber(fileSystem, environment);
 			var args = new FakeCakeArguments();
-			var processRunner = new ProcessRunner(environment, log);
 			var registry = new WindowsRegistry();
 			var toolRepo = new ToolRepository(environment);
 			var config = new Core.Configuration.CakeConfigurationProvider(fileSystem, environment).CreateConfiguration(testsDir, new Dictionary<string, string>());
 			var toolResolutionStrategy = new ToolResolutionStrategy(fileSystem, environment, globber, config);
 			var toolLocator = new ToolLocator(environment, toolRepo, toolResolutionStrategy);
-			context = new CakeContext(fileSystem, environment, globber, log, args, processRunner, registry, toolLocator);
+			var processRunner = new ProcessRunner(fileSystem, environment, log, toolLocator, config);
+			var data = Substitute.For<ICakeDataService>();
+			context = new CakeContext(fileSystem, environment, globber, log, args, processRunner, registry, toolLocator, data, config);
 			context.Environment.WorkingDirectory = testsDir;
 		}
 
@@ -44,12 +46,12 @@ namespace Cake.AppVeyor.Fakes
 
 		public string GetLogs()
 		{
-			return string.Join(Environment.NewLine, log.Messages);
+			return string.Join(Environment.NewLine, log.Entries);
 		}
 
 		public void DumpLogs()
 		{
-			foreach (var m in log.Messages)
+			foreach (var m in log.Entries)
 				Console.WriteLine(m);
 		}
 	}
