@@ -1,7 +1,7 @@
 # Cake.AppVeyor
 A set of aliases for http://cakebuild.net to access the AppVeyor API
 
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/redth/Cake.AppVeyor)
+![AppVeyor](https://ci.appveyor.com/api/projects/status/github/cake-contrib/Cake.AppVeyor)
 
 You can easily reference Cake.AppVeyor directly in your build script via a cake addin:
 
