@@ -25,6 +25,10 @@
   <ItemGroup>
     <PackageReference Include="Cake.Common" Version="0.33.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Refit" version="4.6.58" />
     <PackageReference Include="CakeContrib.Guidelines" Version="0.5.0">
       <PrivateAssets>all</PrivateAssets>
