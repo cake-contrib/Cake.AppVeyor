@@ -208,6 +208,7 @@ namespace Cake.AppVeyor
         /// <param name="accountName">The account name.</param>
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="branch">The branch.</param>
+        [CakeMethodAlias]
         public static AppVeyorProjectBuild AppVeyorProjectLastBranchBuild (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string branch)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -223,6 +224,7 @@ namespace Cake.AppVeyor
         /// <param name="accountName">The account name.</param>
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="buildVersion">The build version.</param>
+        [CakeMethodAlias]
         public static AppVeyorProjectBuild AppVeyorProjectBuildByVersion (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string buildVersion)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -239,6 +241,7 @@ namespace Cake.AppVeyor
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="branch">The branch.</param>
         /// <param name="environmentVariables">The environment variables.</param>
+        [CakeMethodAlias]
         public static AppVeyorBuild AppVeyorStartBuildLatestCommit (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string branch = null, Dictionary<string, string> environmentVariables = null)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -260,6 +263,7 @@ namespace Cake.AppVeyor
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="commitId">The commit hash to build.</param>
         /// <param name="branch">The branch.</param>
+        [CakeMethodAlias]
         public static AppVeyorBuild AppVeyorStartBuildSpecificCommit (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string commitId, string branch = "master")
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -280,6 +284,7 @@ namespace Cake.AppVeyor
         /// <param name="accountName">The account name.</param>
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="pullRequestId">The GitHub pull request id.</param>
+        [CakeMethodAlias]
         public static AppVeyorBuild AppVeyorStartBuildPullRequest (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, int pullRequestId)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -298,6 +303,7 @@ namespace Cake.AppVeyor
         /// <param name="accountName">The account name.</param>
         /// <param name="projectSlug">The project slug.</param>
         /// <param name="buildVersion">The build version of the build to cancel.</param>
+        [CakeMethodAlias]
         public static void AppVeyorCancelBuild (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string buildVersion)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -311,6 +317,7 @@ namespace Cake.AppVeyor
         /// <param name="context">The context.</param>
         /// <param name="appVeyorApiToken">The API token.</param>
         /// <param name="deploymentId">The id of the deployment to get.</param>
+        [CakeMethodAlias]
         public static AppVeyorProjectDeployment AppVeyorDeployment (this ICakeContext context, string appVeyorApiToken, int deploymentId)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -325,6 +332,7 @@ namespace Cake.AppVeyor
         /// <param name="appVeyorApiToken">The API token.</param>
         /// <param name="accountName">The account name.</param>
         /// <param name="projectSlug">The project slug.</param>
+        [CakeMethodAlias]
         public static AppVeyorProjectDeployments AppVeyorProjectDeployments (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -343,6 +351,7 @@ namespace Cake.AppVeyor
         /// <param name="buildVersion">The build version to deploy.</param>
         /// <param name="buildJobId">The build job identifier (optional).</param>
         /// <param name="environmentVariables">The environment variables.</param>
+        [CakeMethodAlias]
         public static AppVeyorDeployment AppVeyorStartDeployment (this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string environmentName, string buildVersion, string buildJobId = null, Dictionary<string, string> environmentVariables = null)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -362,6 +371,7 @@ namespace Cake.AppVeyor
         /// <param name="context">The context.</param>
         /// <param name="appVeyorApiToken">The API token.</param>
         /// <param name="deploymentId">The identifier of the Deployment to cancel.</param>
+        [CakeMethodAlias]
         public static void AppVeyorCancelDeployment (this ICakeContext context, string appVeyorApiToken, int deploymentId)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -376,6 +386,7 @@ namespace Cake.AppVeyor
         /// <returns>The environments.</returns>
         /// <param name="context">The context.</param>
         /// <param name="appVeyorApiToken">The API token.</param>
+        [CakeMethodAlias]
         public static List<AppVeyorEnvironment> AppVeyorEnvironments (this ICakeContext context, string appVeyorApiToken)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
@@ -389,6 +400,7 @@ namespace Cake.AppVeyor
         /// <param name="context">The context.</param>
         /// <param name="appVeyorApiToken">The API token.</param>
         /// <param name="deploymentEnvironmentId">The identifier of the environment to get deployments of.</param>
+        [CakeMethodAlias]
         public static AppVeyorEnvironmentDeployments AppVeyorEnvironmentDeployments (this ICakeContext context, string appVeyorApiToken, int deploymentEnvironmentId)
         {
             var appVeyor = AppVeyorClient.Create (appVeyorApiToken);
