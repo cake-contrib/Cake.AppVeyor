@@ -20,13 +20,13 @@ namespace Cake.AppVeyor.Fakes
 
 			log = new FakeLog();
 			var fileSystem = new FileSystem();
-			var environment = new CakeEnvironment(new CakePlatform(), new CakeRuntime(), log);
+			var environment = new CakeEnvironment(new CakePlatform(), new CakeRuntime());
 			var globber = new Globber(fileSystem, environment);
 			var args = new FakeCakeArguments();
 			var registry = new WindowsRegistry();
 			var toolRepo = new ToolRepository(environment);
 			var config = new Core.Configuration.CakeConfigurationProvider(fileSystem, environment).CreateConfiguration(testsDir, new Dictionary<string, string>());
-			var toolResolutionStrategy = new ToolResolutionStrategy(fileSystem, environment, globber, config);
+			var toolResolutionStrategy = new ToolResolutionStrategy(fileSystem, environment, globber, config, log);
 			var toolLocator = new ToolLocator(environment, toolRepo, toolResolutionStrategy);
 			var processRunner = new ProcessRunner(fileSystem, environment, log, toolLocator, config);
 			var data = Substitute.For<ICakeDataService>();
