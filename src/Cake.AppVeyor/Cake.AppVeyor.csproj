@@ -13,7 +13,7 @@
     <Title>Cake.AppVeyor</Title>
     <Summary>AppVeyor API's addin for cake build.</Summary>
     <Description>Cake Build addin for AppVeyor API's.</Description>
-    <PackageTags>Cake Script Build</PackageTags>
+    <PackageTags>cake;script;build;cake-addin</PackageTags>
     <Authors>Redth</Authors>
     <Owners>Redth</Owners>
     <RepositoryUrl>https://github.com/cake-contrib/Cake.AppVeyor.git</RepositoryUrl>
