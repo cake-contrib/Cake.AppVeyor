@@ -70,6 +70,11 @@ namespace Cake.AppVeyor.Fakes
             _arguments.TryGetValue(name, out var arguments);
             return arguments ?? (ICollection<string>)Array.Empty<string>();
         }
+
+        public IDictionary<string, ICollection<string>> GetArguments()
+        {
+            return (IDictionary<string, ICollection<string>>)_arguments;
+        }
     }
 }
 
