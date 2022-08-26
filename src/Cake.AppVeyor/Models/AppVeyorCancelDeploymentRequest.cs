@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorCancelDeploymentRequest
+    public class AppVeyorCancelDeploymentRequest
     {
         [JsonProperty ("deploymentId")]
         public int DeploymentId { get; set; }

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorBuildRequestSpecificCommit
+    public class AppVeyorBuildRequestSpecificCommit
     {
         public AppVeyorBuildRequestSpecificCommit ()
         {

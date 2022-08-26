@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorStartDeploymentRequest
+    public class AppVeyorStartDeploymentRequest
     {
         public AppVeyorStartDeploymentRequest ()
         {
