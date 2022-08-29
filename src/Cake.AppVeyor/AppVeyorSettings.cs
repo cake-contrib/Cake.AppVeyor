@@ -6,7 +6,7 @@ using Cake.Core.Annotations;
 namespace Cake.AppVeyor
 {
     /// <summary>
-    /// AppVeyor Settings
+    /// AppVeyor Settings.
     /// </summary>
     public class AppVeyorSettings
     {
@@ -16,5 +16,4 @@ namespace Cake.AppVeyor
         /// <value>The API token.</value>
         public string ApiToken { get; set; }
     }
-    
 }

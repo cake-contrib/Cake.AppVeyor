@@ -5,22 +5,27 @@ namespace Cake.AppVeyor
 {
     public class AppVeyorStartDeploymentRequest
     {
-        public AppVeyorStartDeploymentRequest ()
+        public AppVeyorStartDeploymentRequest()
         {
-            EnvironmentVariables = new Dictionary<string, string> ();
+            EnvironmentVariables = new Dictionary<string, string>();
         }
 
-        [JsonProperty ("environmentName")]
+        [JsonProperty("environmentName")]
         public string EnvironmentName { get; set; }
-        [JsonProperty ("accountName")]
+
+        [JsonProperty("accountName")]
         public string AccountName { get; set; }
-        [JsonProperty ("projectSlug")]
+
+        [JsonProperty("projectSlug")]
         public string ProjectSlug { get; set; }
-        [JsonProperty ("buildVersion")]
+
+        [JsonProperty("buildVersion")]
         public string BuildVersion { get; set; }
-        [JsonProperty ("buildJobId")]
+
+        [JsonProperty("buildJobId")]
         public string BuildJobId { get; set; }
-        [JsonProperty ("environmentVariables")]
+
+        [JsonProperty("environmentVariables")]
         public Dictionary<string, string> EnvironmentVariables { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace Cake.AppVeyor
 {
     public class AppVeyorCancelDeploymentRequest
     {
-        [JsonProperty ("deploymentId")]
+        [JsonProperty("deploymentId")]
         public int DeploymentId { get; set; }
     }
 }

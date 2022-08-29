@@ -5,19 +5,22 @@ namespace Cake.AppVeyor
 {
     public class AppVeyorBuildRequestLatestCommit
     {
-        public AppVeyorBuildRequestLatestCommit ()
+        public AppVeyorBuildRequestLatestCommit()
         {
             Branch = "master";
-            EnvironmentVariables = new Dictionary<string, string> ();
+            EnvironmentVariables = new Dictionary<string, string>();
         }
 
-        [JsonProperty ("accountName")]
+        [JsonProperty("accountName")]
         public string AccountName { get; set; }
-        [JsonProperty ("projectSlug")]
+
+        [JsonProperty("projectSlug")]
         public string ProjectSlug { get; set; }
-        [JsonProperty ("branch")]
+
+        [JsonProperty("branch")]
         public string Branch { get; set; }
-        [JsonProperty ("environmentVariables")]
-        public Dictionary<string, string> EnvironmentVariables { get;set; }
+
+        [JsonProperty("environmentVariables")]
+        public Dictionary<string, string> EnvironmentVariables { get; set; }
     }
 }

@@ -4,18 +4,21 @@ namespace Cake.AppVeyor
 {
     public class AppVeyorBuildRequestSpecificCommit
     {
-        public AppVeyorBuildRequestSpecificCommit ()
+        public AppVeyorBuildRequestSpecificCommit()
         {
             Branch = "master";
         }
 
-        [JsonProperty ("accountName")]
+        [JsonProperty("accountName")]
         public string AccountName { get; set; }
-        [JsonProperty ("projectSlug")]
+
+        [JsonProperty("projectSlug")]
         public string ProjectSlug { get; set; }
-        [JsonProperty ("branch")]
+
+        [JsonProperty("branch")]
         public string Branch { get; set; }
-        [JsonProperty ("commitId")]
-        public string CommitId { get;set; }
+
+        [JsonProperty("commitId")]
+        public string CommitId { get; set; }
     }
 }

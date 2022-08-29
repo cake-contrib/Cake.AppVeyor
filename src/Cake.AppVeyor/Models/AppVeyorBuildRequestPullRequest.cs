@@ -4,11 +4,13 @@ namespace Cake.AppVeyor
 {
     public class AppVeyorBuildRequestPullRequest
     {
-        [JsonProperty ("accountName")]
+        [JsonProperty("accountName")]
         public string AccountName { get; set; }
-        [JsonProperty ("projectSlug")]
+
+        [JsonProperty("projectSlug")]
         public string ProjectSlug { get; set; }
-        [JsonProperty ("pullRequestId")]
+
+        [JsonProperty("pullRequestId")]
         public int PullRequestId { get; set; }
     }
 }

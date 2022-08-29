@@ -5,11 +5,12 @@ namespace Cake.AppVeyor.Tests
 {
     public static class Keys
     {
-        const string YOUR_APPVEYOR_API_TOKEN = "{APPVEYOR_APITOKEN}";
+        private const string YOUR_APPVEYOR_API_TOKEN = "{APPVEYOR_APITOKEN}";
 
-        static string appVeyorApiToken;
+        private static string appVeyorApiToken;
 
-        public static string AppVeyorApiToken {
+        public static string AppVeyorApiToken
+        {
             get
             {
                 if (appVeyorApiToken == null)

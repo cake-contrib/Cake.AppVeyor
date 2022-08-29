@@ -1,4 +1,3 @@
-
 namespace Cake.AppVeyor
 {
     /// <summary>
@@ -11,6 +10,7 @@ namespace Cake.AppVeyor
         /// </summary>
         /// <value>The environment.</value>
         public AppVeyorEnvironment Environment { get; set; }
+
         /// <summary>
         /// Gets or sets the deployment.
         /// </summary>
