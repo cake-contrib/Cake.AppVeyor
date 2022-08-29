@@ -1,7 +1,3 @@
-environment:
-  appveyor_api_token:
-    secure: vJntliZhY34wDY8ERUBFNtDYDykoBArjD23Hq3hfN+0=
-
 #---------------------------------#
 #  Build Image                    #
 #---------------------------------#
