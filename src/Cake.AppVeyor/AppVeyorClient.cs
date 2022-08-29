@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 
 namespace Cake.AppVeyor
 {
-    static class AppVeyorClient
+    public static class AppVeyorClient
     {
         const string baseUrl = "https://ci.appveyor.com";
 
@@ -21,7 +21,7 @@ namespace Cake.AppVeyor
         }
     }
 
-    interface IAppVeyorApi
+    public interface IAppVeyorApi
     {
         [Delete("/api/projects/{accountName}/{projectSlug}/buildcache")]
         Task ClearCache (string accountName, string projectSlug);

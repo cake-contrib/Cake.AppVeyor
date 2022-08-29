@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorBuildRequestPullRequest
+    public class AppVeyorBuildRequestPullRequest
     {
         [JsonProperty ("accountName")]
         public string AccountName { get; set; }

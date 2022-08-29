@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorBuildRequestLatestCommit
+    public class AppVeyorBuildRequestLatestCommit
     {
         public AppVeyorBuildRequestLatestCommit ()
         {
