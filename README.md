@@ -22,7 +22,7 @@ Please visit the Cake Documentation for a list of available aliases:
 
 ## Apache License 2.0
 
-Apache Cake.Json Copyright 2016. The Apache Software Foundation This product includes software developed at [The Apache Software Foundation](http://www.apache.org/).
+Apache Cake.AppVeyor Copyright 2016. The Apache Software Foundation This product includes software developed at [The Apache Software Foundation](http://www.apache.org/).
 
 ## Discussion
 
