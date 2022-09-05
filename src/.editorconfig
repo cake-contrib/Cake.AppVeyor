@@ -91,7 +91,7 @@ csharp_prefer_static_local_function = true:suggestion
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:silent
 
 # Code-block preferences
-csharp_prefer_braces = true:silent
+csharp_prefer_braces = true:error
 csharp_prefer_simple_using_statement = true:suggestion
 
 # Expression-level preferences
@@ -248,6 +248,9 @@ dotnet_diagnostic.IDE1006.severity = none
 
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = error
+
+# IDE0011: Add braces
+dotnet_diagnostic.IDE0011.severity = error
 
 [*.{cs,vb}]
 dotnet_style_operator_placement_when_wrapping = beginning_of_line

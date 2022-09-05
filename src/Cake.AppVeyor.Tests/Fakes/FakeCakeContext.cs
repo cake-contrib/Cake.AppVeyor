@@ -52,7 +52,9 @@ namespace Cake.AppVeyor.Fakes
         public void DumpLogs()
         {
             foreach (var m in log.Entries)
+            {
                 Console.WriteLine(m);
+            }
         }
     }
 }
