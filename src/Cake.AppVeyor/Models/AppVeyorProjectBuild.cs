@@ -1,8 +1,7 @@
-
 namespace Cake.AppVeyor
 {
     /// <summary>
-    /// Project Build
+    /// Project Build.
     /// </summary>
     public class AppVeyorProjectBuild
     {
@@ -11,6 +10,7 @@ namespace Cake.AppVeyor
         /// </summary>
         /// <value>The project.</value>
         public AppVeyorProject Project { get; set; }
+
         /// <summary>
         /// Gets or sets the build.
         /// </summary>

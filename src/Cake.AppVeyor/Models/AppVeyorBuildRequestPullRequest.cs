@@ -2,13 +2,27 @@ using Newtonsoft.Json;
 
 namespace Cake.AppVeyor
 {
-    class AppVeyorBuildRequestPullRequest
+    /// <summary>
+    /// Provides a class to describe the properties of a pull request build.
+    /// </summary>
+    public class AppVeyorBuildRequestPullRequest
     {
-        [JsonProperty ("accountName")]
+        /// <summary>
+        /// Gets or sets the AppVeyor Account Name.
+        /// </summary>
+        [JsonProperty("accountName")]
         public string AccountName { get; set; }
-        [JsonProperty ("projectSlug")]
+
+        /// <summary>
+        /// Gets or sets the AppVeyor Project Slug.
+        /// </summary>
+        [JsonProperty("projectSlug")]
         public string ProjectSlug { get; set; }
-        [JsonProperty ("pullRequestId")]
+
+        /// <summary>
+        /// Gets or sets the Pull Request ID.
+        /// </summary>
+        [JsonProperty("pullRequestId")]
         public int PullRequestId { get; set; }
     }
 }

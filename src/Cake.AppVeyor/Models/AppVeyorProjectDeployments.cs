@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Cake.AppVeyor
 {
     /// <summary>
-    /// Project Deployments
+    /// Project Deployments.
     /// </summary>
     public class AppVeyorProjectDeployments
     {
@@ -12,6 +12,7 @@ namespace Cake.AppVeyor
         /// </summary>
         /// <value>The project.</value>
         public AppVeyorProject Project { get; set; }
+
         /// <summary>
         /// Gets or sets the deployments.
         /// </summary>

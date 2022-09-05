@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Cake.AppVeyor
 {
     /// <summary>
-    /// Environment Deployments
+    /// Environment Deployments.
     /// </summary>
     public class AppVeyorEnvironmentDeployments
     {
@@ -12,6 +12,7 @@ namespace Cake.AppVeyor
         /// </summary>
         /// <value>The environment.</value>
         public AppVeyorEnvironment Environment { get; set; }
+
         /// <summary>
         /// Gets or sets the deployments.
         /// </summary>
