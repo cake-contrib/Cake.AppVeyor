@@ -22,9 +22,8 @@ namespace Cake.AppVeyor
     public static class AppVeyorAliases
     {
         /// <summary>
-        /// Clears the AppVeyor Cache.
+        /// Clears the AppVeyor Cache using additional settings in <cref>AppVeyorSettings</cref>.
         /// </summary>
-        /// <returns>The projects.</returns>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
         /// <param name="accountName">The account name.</param>
@@ -37,9 +36,8 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets all projects.
+        /// Clears the AppVeyor Cache.
         /// </summary>
-        /// <returns>The projects.</returns>
         /// <param name="context">The context.</param>
         /// <param name="appVeyorApiToken">The API Token.</param>
         /// <param name="accountName">The account name.</param>
@@ -52,7 +50,7 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets all projects.
+        /// Gets all projects using additional settings in <cref>AppVeyorSettings</cref>.
         /// </summary>
         /// <returns>The projects.</returns>
         /// <param name="context">The context.</param>
@@ -78,7 +76,7 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets the project build history.
+        /// Gets the project build history using additional settings in <cref>AppVeyorSettings</cref>.
         /// </summary>
         /// <returns>The project build history.</returns>
         /// <param name="context">The context.</param>
@@ -114,7 +112,7 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets the last build of the project.
+        /// Gets the last build of the project using additional settings in <cref>AppVeyorSettings</cref>.
         /// </summary>
         /// <returns>The project's last build.</returns>
         /// <param name="context">The context.</param>
@@ -144,7 +142,7 @@ namespace Cake.AppVeyor
         }
 
         /// <summary>
-        /// Gets the last successful build of the project.
+        /// Gets the last successful build of the project using additional settings in <cref>AppVeyorSettings</cref>.
         /// </summary>
         /// <returns>The project's last successful build.</returns>
         /// <param name="context">The context.</param>
