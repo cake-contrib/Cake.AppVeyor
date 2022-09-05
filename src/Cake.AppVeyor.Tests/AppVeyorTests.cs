@@ -1,7 +1,6 @@
 ﻿using Xunit;
 using System;
 using System.Linq;
-using Cake.AppVeyor;
 using Cake.AppVeyor.Fakes;
 
 namespace Cake.AppVeyor.Tests

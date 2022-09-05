@@ -246,6 +246,9 @@ dotnet_diagnostic.SA1633.severity = none
 # IDE1006: Naming Styles
 dotnet_diagnostic.IDE1006.severity = none
 
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = error
+
 [*.{cs,vb}]
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
