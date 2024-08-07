@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     strategy:
       matrix:
-        os: [windows-2022, ubuntu-22.04, macos-12]
+        os: [windows-2022, ubuntu-20.04, macos-12]
 
     env:
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
