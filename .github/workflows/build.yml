@@ -19,7 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-18.04, macos-latest]
+        os: [windows-latest, ubuntu-18.04, macos-13]
 
     env:
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
