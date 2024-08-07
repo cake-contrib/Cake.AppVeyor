@@ -72,6 +72,7 @@ jobs:
       - name: Build project
         uses: cake-build/cake-action@1223b6fa067ad192159f43b50cd4f953679b0934 # v2.0.0
         with:
+          cake-bootstrap: explicit
           script-path: recipe.cake
           target: CI
           verbosity: Normal
