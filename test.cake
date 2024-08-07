@@ -1,6 +1,6 @@
 #reference "BuildArtifacts/temp/_PublishedLibraries/Cake.AppVeyor/net6.0/Cake.AppVeyor.dll"
 #addin nuget:?package=Refit&version=4.8.14
-#addin nuget:?package=Newtonsoft.Json&version=11.0.2
+#addin nuget:?package=Newtonsoft.Json&version=13.0.3
 
 public class BuildData
 {
