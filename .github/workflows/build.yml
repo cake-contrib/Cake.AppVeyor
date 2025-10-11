@@ -19,7 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, ubuntu-22.04, macos-12]
+        os: [windows-latest, ubuntu-22.04, macos-13]
 
     env:
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
@@ -67,7 +67,11 @@ jobs:
             6.0.x
             7.0.x
             8.0.x
-
+            9.0.x
+      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
+      - name: Install Mono
+        if: ${{ matrix.os == 'ubuntu-24.04' }}
+        run: sudo apt-get install mono-complete
       - name: Build project
         uses: cake-build/cake-action@1223b6fa067ad192159f43b50cd4f953679b0934 # v2.0.0
         with:
