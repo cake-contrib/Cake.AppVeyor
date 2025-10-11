@@ -39,7 +39,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Refit" version="4.8.14" />
-    <PackageReference Include="CakeContrib.Guidelines" Version="1.5.1">
+    <PackageReference Include="CakeContrib.Guidelines" Version="1.6.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
