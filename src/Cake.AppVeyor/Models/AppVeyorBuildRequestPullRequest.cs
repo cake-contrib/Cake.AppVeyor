@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Cake.AppVeyor
 {
@@ -10,19 +10,19 @@ namespace Cake.AppVeyor
         /// <summary>
         /// Gets or sets the AppVeyor Account Name.
         /// </summary>
-        [JsonProperty("accountName")]
+        [JsonPropertyName("accountName")]
         public string AccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Project Slug.
         /// </summary>
-        [JsonProperty("projectSlug")]
+        [JsonPropertyName("projectSlug")]
         public string ProjectSlug { get; set; }
 
         /// <summary>
         /// Gets or sets the Pull Request ID.
         /// </summary>
-        [JsonProperty("pullRequestId")]
+        [JsonPropertyName("pullRequestId")]
         public int PullRequestId { get; set; }
     }
 }
