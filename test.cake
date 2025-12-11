@@ -1,4 +1,4 @@
-#reference "BuildArtifacts/temp/_PublishedLibraries/Cake.AppVeyor/net6.0/Cake.AppVeyor.dll"
+#reference "BuildArtifacts/temp/_PublishedLibraries/Cake.AppVeyor/net9.0/Cake.AppVeyor.dll"
 #addin nuget:?package=Refit&version=9.0.2
 
 public class BuildData
