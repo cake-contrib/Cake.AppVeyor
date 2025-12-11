@@ -2,14 +2,6 @@ name: Build
 
 on:
   push:
-    branches:
-      - master
-      - develop
-      - "feature/**"
-      - "release/**"
-      - "hotfix/**"
-    tags:
-      - "*"
     paths-ignore:
       - "README.md"
   pull_request:
@@ -19,16 +11,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-24.04, macos-13]
+        os: [ windows-2025, ubuntu-24.04 ]
 
     env:
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
       AZURE_SOURCE: ${{ secrets.AZURE_SOURCE }}
       AZURE_USER: ${{ secrets.AZURE_USER }}
       GITHUB_PAT: ${{ secrets.GH_TOKEN }}
+      GITTER_ROOM_ID: ${{ secrets.GITTER_ROOM_ID }}
       GPR_PASSWORD: ${{ secrets.GPR_PASSWORD }}
       GPR_SOURCE: ${{ secrets.GPR_SOURCE }}
       GPR_USER: ${{ secrets.GPR_USER }}
+      GITTER_TOKEN: ${{ secrets.GITTER_TOKEN }}
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
       TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
@@ -38,59 +32,59 @@ jobs:
       WYAM_ACCESS_TOKEN: ${{ secrets.WYAM_ACCESS_TOKEN }}
       WYAM_DEPLOY_BRANCH: "gh-pages"
       WYAM_DEPLOY_REMOTE: ${{ github.event.repository.html_url }}
-
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        with:
+          fetch-depth: 0
 
-      - name: Fetch all tags and branches
-        run: git fetch --prune --unshallow
+      - name: Install dotnet
+        uses: actions/setup-dotnet@2016bd2012dba4e32de620c46fe006a3ac9f0602 # v5
+        with:
+          dotnet-version: |
+            6.0.x
+            7.0.x
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Install mono
+        if: runner.os == 'Linux'
+        # check https://www.mono-project.com/download/stable/#download-lin
+        run: |
+            sudo apt install ca-certificates gnupg
+            sudo gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+            sudo chmod +r /usr/share/keyrings/mono-official-archive-keyring.gpg
+            echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+            sudo apt update
+            sudo apt install -y mono-complete
+            mono --version
 
       - name: Cache Tools
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: tools
-          key: ${{ runner.os }}-tools-${{ hashFiles('recipe.cake', '.config/dotnet-tools.json') }}
+          key: ${{ runner.os }}-tools-${{ hashFiles('recipe.cake') }}
 
-      # install libgit2-dev on ubuntu, so libgit2sharp works
-      - name: Install libgit-dev
-        if: runner.os == 'Linux'
-        run: sudo apt-get install -y libgit2-dev
-
-      - name: Setup required dotnet versions
-        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
-        with:
-          dotnet-version: |
-            2.1.818
-            3.1.x
-            5.0.x
-            6.0.x
-            7.0.x
-            8.0.x
-            9.0.x
-      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
-      - name: Install Mono
-        if: ${{ matrix.os == 'ubuntu-24.04' }}
-        run: sudo apt-get install mono-complete
       - name: Build project
-        uses: cake-build/cake-action@1223b6fa067ad192159f43b50cd4f953679b0934 # v2.0.0
+        uses: cake-build/cake-action@d218f1133bb74a1df0b08c89cfd8fc100c09e1a0 # v3
         with:
-          cake-bootstrap: explicit
           script-path: recipe.cake
           target: CI
           verbosity: Normal
           cake-version: tool-manifest
 
       - name: Upload Issues-Report
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
         with:
           if-no-files-found: warn
-          name: ${{ matrix.os }} Issues
+          name: ${{ matrix.os }} issues
           path: BuildArtifacts/report.html
 
       - name: Upload Packages
         if: runner.os == 'Windows'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
         with:
           if-no-files-found: warn
           name: package
