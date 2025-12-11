@@ -9,12 +9,11 @@ namespace Cake.AppVeyor
     /// <summary>
     /// <para>AppVeyor API related cake aliases.</para>
     /// <para>
-    ///  In order to use aliases from this addin, you will need to also reference Refit and Newtonsoft.Json as an addin.
+    ///  In order to use aliases from this addin, you will need to also reference Refit as an addin.
     ///  Here is what including Cake.AppVeyor in your script should look like:
     /// <code>
     /// #addin package:?Cake.AppVeyor
-    /// #addin package:?Refit&amp;version=4.6.58
-    /// #addin package:?Newtonsoft.Json&amp;version=11.0.2
+    /// #addin package:?Refit&amp;version=9.0.2
     /// </code>
     /// </para>
     /// </summary>

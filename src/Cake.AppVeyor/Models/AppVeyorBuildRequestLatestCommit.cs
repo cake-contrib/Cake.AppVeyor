@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Cake.AppVeyor
 {
@@ -20,25 +20,25 @@ namespace Cake.AppVeyor
         /// <summary>
         /// Gets or sets the AppVeyor Account Name.
         /// </summary>
-        [JsonProperty("accountName")]
+        [JsonPropertyName("accountName")]
         public string AccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Project Slug.
         /// </summary>
-        [JsonProperty("projectSlug")]
+        [JsonPropertyName("projectSlug")]
         public string ProjectSlug { get; set; }
 
         /// <summary>
         /// Gets or sets the branch name for the project.
         /// </summary>
-        [JsonProperty("branch")]
+        [JsonPropertyName("branch")]
         public string Branch { get; set; }
 
         /// <summary>
         /// Gets or sets the environment variables.
         /// </summary>
-        [JsonProperty("environmentVariables")]
+        [JsonPropertyName("environmentVariables")]
         public Dictionary<string, string> EnvironmentVariables { get; set; }
     }
 }

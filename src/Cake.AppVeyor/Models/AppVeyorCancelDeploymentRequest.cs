@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Cake.AppVeyor
 {
@@ -10,7 +10,7 @@ namespace Cake.AppVeyor
         /// <summary>
         /// Gets or sets of the deployment ID.
         /// </summary>
-        [JsonProperty("deploymentId")]
+        [JsonPropertyName("deploymentId")]
         public int DeploymentId { get; set; }
     }
 }
