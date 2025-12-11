@@ -13,6 +13,7 @@ on:
     branches: [develop]
   schedule:
     - cron: '0 15 * * 6'
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -30,47 +31,70 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
 
-    # install libgit2-dev on ubuntu, so libgit2sharp works
-    - name: Install libgit-dev
-      if: runner.os == 'Linux'
-      run: sudo apt-get install -y libgit2-dev
-
-    - name: Setup required dotnet versions
-      uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+    - name: Install dotnet
+      uses: actions/setup-dotnet@v5
       with:
+        # codecov needs 2.1
+        # unittests needs 3.1
+        # gitversion needs 5.0
         dotnet-version: |
-          2.1.818
+          2.1.x
           3.1.x
           5.0.x
           6.0.x
           7.0.x
           8.0.x
-          9.0.x
-    # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
-    - name: Install Mono
-      if: ${{ matrix.os == 'ubuntu-24.04' }}
-      run: sudo apt-get install mono-complete
-    # If this run was triggered by a pull request event, then checkout
-    # the head of the pull request instead of the merge commit.
-    - run: git checkout HEAD^2
-      if: ${{ github.event_name == 'pull_request' }}
+
+    - name: Cache Tools
+      uses: actions/cache@v4
+      with:
+        path: tools
+        key: ${{ runner.os }}-tools-${{ hashFiles('recipe.cake') }}
+
+    - name: Install mono
+      if: runner.os == 'Linux'
+      # check https://www.mono-project.com/download/stable/#download-lin
+      run: |
+        sudo apt install ca-certificates gnupg
+        sudo gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+        sudo chmod +r /usr/share/keyrings/mono-official-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+        sudo apt update
+        sudo apt install -y mono-complete
+        mono --version
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@755f44910c12a3d7ca0d8c6e42c048b3362f7cec # v3
+      uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
         # If you wish to specify custom queries, you can do so here or in a config file.
-        # By default, queries listed here will override any specified in a config file. 
+        # By default, queries listed here will override any specified in a config file.
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
-    - run: ./build.ps1
-      shell: pwsh
+    - name: Build project
+      uses: cake-build/cake-action@v3
+      with:
+        script-path: recipe.cake
+        target: DotNetCore-Build
+        cake-version: tool-manifest
+      env:
+        COMPlus_DbgEnableMiniDump: 1
+        COMPlus_DbgMiniDumpType: 1
+        COMPlus_DbgMiniDumpName: BuildArtifacts/coredump.dmp
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@755f44910c12a3d7ca0d8c6e42c048b3362f7cec # v3
+      uses: github/codeql-action/analyze@v4
+
+    - name: Upload CoreDump
+      uses: actions/upload-artifact@v5
+      if: failure()
+      with:
+        if-no-files-found: warn
+        name: CoreDump
+        path: BuildArtifacts/coredump.dmp
