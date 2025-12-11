@@ -11,23 +11,23 @@ env:
 
 jobs:
   cake:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: checkout
-      uses: actions/checkout@v3 #https://github.com/actions/checkout
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4 #https://github.com/actions/checkout
       with:
         fetch-depth: 0 # GitVersion is somewhat irritated when fetch-depth is "1"....
         ref: ${{ github.event.ref }}
     
     - name: Cache Tools
-      uses: actions/cache@v3
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: tools
         key: ${{ runner.os }}-doc-tools-${{ hashFiles('recipe.cake') }}
 
     - name: Publishing documentation
-      uses: cake-build/cake-action@v1
+      uses: cake-build/cake-action@a6eb054329257c9e70a6c6bf01747ad6e1d9d52b # v1
       with:
         script-path: recipe.cake
         target: Force-Publish-Documentation

@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=2.2.1
+#load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins/nuget/v3/index.json?package=Cake.Recipe&version=4.1.0-alpha0042
 
 Environment.SetVariableNames();
 
@@ -9,8 +9,7 @@ BuildParameters.SetParameters(context: Context,
                             repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.AppVeyor",
                             appVeyorAccountName: "cakecontrib",
-                            shouldRunDotNetCorePack: true,
-                            shouldRunDupFinder: false,
+                            shouldRunDotNetPack: true,
                             shouldRunInspectCode: false,
                             testFilePattern: "DO_NOT_RUN_TESTS",
                             preferredBuildProviderType: BuildProviderType.GitHubActions);
@@ -18,9 +17,7 @@ BuildParameters.SetParameters(context: Context,
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context,
-                            dupFinderExcludePattern: new string[] {
-                                BuildParameters.RootDirectoryPath + "/Cake.AppVeyor.Tests/*.cs" },
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[FakeItEasy]*",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
-Build.RunDotNetCore();
+Build.RunDotNet();
