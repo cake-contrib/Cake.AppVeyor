@@ -81,7 +81,7 @@ jobs:
       uses: cake-build/cake-action@v3
       with:
         script-path: recipe.cake
-        target: DotNetCore-Build
+        target: DotNet-Build
         cake-version: tool-manifest
       env:
         COMPlus_DbgEnableMiniDump: 1
