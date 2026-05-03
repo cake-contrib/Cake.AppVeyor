@@ -21,19 +21,19 @@ namespace Cake.AppVeyor
         /// Gets or sets the AppVeyor Account Name.
         /// </summary>
         [JsonPropertyName("accountName")]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Project Slug.
         /// </summary>
         [JsonPropertyName("projectSlug")]
-        public string ProjectSlug { get; set; }
+        public string? ProjectSlug { get; set; }
 
         /// <summary>
         /// Gets or sets the branch name for the project.
         /// </summary>
         [JsonPropertyName("branch")]
-        public string Branch { get; set; }
+        public string? Branch { get; set; }
 
         /// <summary>
         /// Gets or sets the environment variables.

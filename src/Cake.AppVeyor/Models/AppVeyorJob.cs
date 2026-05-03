@@ -11,13 +11,13 @@ namespace Cake.AppVeyor
         /// Gets or sets the job identifier.
         /// </summary>
         /// <value>The job identifier.</value>
-        public string JobId { get; set; }
+        public string? JobId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Cake.AppVeyor.AppVeyorJob"/> allows failure.
@@ -77,7 +77,7 @@ namespace Cake.AppVeyor
         /// Gets or sets the status.
         /// </summary>
         /// <value>The status.</value>
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// Gets or sets the start time.

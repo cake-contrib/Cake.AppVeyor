@@ -60,7 +60,7 @@ namespace Cake.AppVeyor.Fakes
         /// </summary>
         /// <param name="name">The argument name.</param>
         /// <returns>The argument value.</returns>
-        public string GetArgument(string name)
+        public string? GetArgument(string name)
         {
             return GetArguments(name).LastOrDefault();
         }

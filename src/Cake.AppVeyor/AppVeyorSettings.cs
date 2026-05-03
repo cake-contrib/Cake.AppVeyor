@@ -9,6 +9,6 @@ namespace Cake.AppVeyor
         /// Gets or sets the API token.
         /// </summary>
         /// <value>The API token.</value>
-        public string ApiToken { get; set; }
+        public string? ApiToken { get; set; }
     }
 }

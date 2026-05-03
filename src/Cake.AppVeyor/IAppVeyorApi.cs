@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
 
@@ -35,7 +35,7 @@ namespace Cake.AppVeyor
         /// <param name="branch">The name of the branch to use for the request.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation with the project history.</returns>
         [Get("/api/projects/{accountName}/{projectSlug}/history")]
-        Task<AppVeyorProjectHistory> GetProjectHistory(string accountName, string projectSlug, [AliasAs("recordsNumber")] int recordsPerPage, int? startBuildId = null, string branch = null);
+        Task<AppVeyorProjectHistory> GetProjectHistory(string accountName, string projectSlug, [AliasAs("recordsNumber")] int recordsPerPage, int? startBuildId = null, string? branch = null);
 
         /// <summary>
         /// Gets the latest build for a given project.

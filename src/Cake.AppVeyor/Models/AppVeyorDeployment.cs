@@ -18,25 +18,25 @@ namespace Cake.AppVeyor
         /// Gets or sets the build.
         /// </summary>
         /// <value>The build.</value>
-        public AppVeyorBuild Build { get; set; }
+        public AppVeyorBuild? Build { get; set; }
 
         /// <summary>
         /// Gets or sets the environment.
         /// </summary>
         /// <value>The environment.</value>
-        public AppVeyorEnvironment Environment { get; set; }
+        public AppVeyorEnvironment? Environment { get; set; }
 
         /// <summary>
         /// Gets or sets the jobs.
         /// </summary>
         /// <value>The jobs.</value>
-        public List<AppVeyorJob> Jobs { get; set; }
+        public List<AppVeyorJob>? Jobs { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
         /// <value>The status.</value>
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// Gets or sets the start time.
