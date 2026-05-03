@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Cake.AppVeyor
@@ -24,49 +24,49 @@ namespace Cake.AppVeyor
         /// Gets or sets the name of the account.
         /// </summary>
         /// <value>The name of the account.</value>
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the builds.
         /// </summary>
         /// <value>The builds.</value>
-        public List<AppVeyorBuild> Builds { get; set; }
+        public List<AppVeyorBuild>? Builds { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the slug.
         /// </summary>
         /// <value>The slug.</value>
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the repository.
         /// </summary>
         /// <value>The type of the repository.</value>
-        public string RepositoryType { get; set; }
+        public string? RepositoryType { get; set; }
 
         /// <summary>
         /// Gets or sets the repository SCM.
         /// </summary>
         /// <value>The repository SCM.</value>
-        public string RepositoryScm { get; set; }
+        public string? RepositoryScm { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the repository.
         /// </summary>
         /// <value>The name of the repository.</value>
-        public string RepositoryName { get; set; }
+        public string? RepositoryName { get; set; }
 
         /// <summary>
         /// Gets or sets the repository branch.
         /// </summary>
         /// <value>The repository branch.</value>
-        public string RepositoryBranch { get; set; }
+        public string? RepositoryBranch { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is private.
@@ -85,7 +85,7 @@ namespace Cake.AppVeyor
         /// Gets or sets the nu get feed.
         /// </summary>
         /// <value>The nu get feed.</value>
-        public AppVeyorNuGetFeed NuGetFeed { get; set; }
+        public AppVeyorNuGetFeed? NuGetFeed { get; set; }
 
         /// <summary>
         /// Gets or sets the create time.

@@ -20,31 +20,31 @@ namespace Cake.AppVeyor
         /// Gets or sets the AppVeyor Environment Name.
         /// </summary>
         [JsonPropertyName("environmentName")]
-        public string EnvironmentName { get; set; }
+        public string? EnvironmentName { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Account Name.
         /// </summary>
         [JsonPropertyName("accountName")]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Project Slug.
         /// </summary>
         [JsonPropertyName("projectSlug")]
-        public string ProjectSlug { get; set; }
+        public string? ProjectSlug { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Build Version.
         /// </summary>
         [JsonPropertyName("buildVersion")]
-        public string BuildVersion { get; set; }
+        public string? BuildVersion { get; set; }
 
         /// <summary>
         /// Gets or sets the AppVeyor Build Job ID.
         /// </summary>
         [JsonPropertyName("buildJobId")]
-        public string BuildJobId { get; set; }
+        public string? BuildJobId { get; set; }
 
         /// <summary>
         /// Gets or sets the environment variables.

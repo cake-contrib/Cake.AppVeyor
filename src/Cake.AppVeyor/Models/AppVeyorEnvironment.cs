@@ -17,13 +17,13 @@ namespace Cake.AppVeyor
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
         /// </summary>
         /// <value>The provider.</value>
-        public string Provider { get; set; }
+        public string? Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the create time.

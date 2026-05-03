@@ -9,12 +9,12 @@ namespace Cake.AppVeyor
         /// Gets or sets the project.
         /// </summary>
         /// <value>The project.</value>
-        public AppVeyorProject Project { get; set; }
+        public AppVeyorProject? Project { get; set; }
 
         /// <summary>
         /// Gets or sets the deployment.
         /// </summary>
         /// <value>The deployment.</value>
-        public AppVeyorDeployment Deployment { get; set; }
+        public AppVeyorDeployment? Deployment { get; set; }
     }
 }

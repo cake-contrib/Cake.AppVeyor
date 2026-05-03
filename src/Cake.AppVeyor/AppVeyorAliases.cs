@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cake.Core;
@@ -30,7 +30,7 @@ namespace Cake.AppVeyor
         [CakeMethodAlias]
         public static void AppVeyorClearCache(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug)
         {
-            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken!);
             appVeyor.ClearCache(accountName, projectSlug).Wait();
         }
 
@@ -57,7 +57,7 @@ namespace Cake.AppVeyor
         [CakeMethodAlias]
         public static List<AppVeyorProject> AppVeyorProjects(this ICakeContext context, AppVeyorSettings settings)
         {
-            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken!);
             return appVeyor.GetProjects().Result;
         }
 
@@ -86,9 +86,9 @@ namespace Cake.AppVeyor
         /// <param name="startBuildId">The build identifier to start returning records after.</param>
         /// <param name="branch">The branch.</param>
         [CakeMethodAlias]
-        public static AppVeyorProjectHistory AppVeyorProjectHistory(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug, int recordsPerPage, int? startBuildId = null, string branch = null)
+        public static AppVeyorProjectHistory AppVeyorProjectHistory(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug, int recordsPerPage, int? startBuildId = null, string? branch = null)
         {
-            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken!);
             return appVeyor.GetProjectHistory(accountName, projectSlug, recordsPerPage, startBuildId, branch).Result;
         }
 
@@ -104,7 +104,7 @@ namespace Cake.AppVeyor
         /// <param name="startBuildId">The build identifier to start returning records after.</param>
         /// <param name="branch">The branch.</param>
         [CakeMethodAlias]
-        public static AppVeyorProjectHistory AppVeyorProjectHistory(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, int recordsPerPage, int? startBuildId = null, string branch = null)
+        public static AppVeyorProjectHistory AppVeyorProjectHistory(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, int recordsPerPage, int? startBuildId = null, string? branch = null)
         {
             var appVeyor = AppVeyorClient.Create(appVeyorApiToken);
             return appVeyor.GetProjectHistory(accountName, projectSlug, recordsPerPage, startBuildId, branch).Result;
@@ -121,7 +121,7 @@ namespace Cake.AppVeyor
         [CakeMethodAlias]
         public static AppVeyorProjectBuild AppVeyorProjectLastBuild(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug)
         {
-            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken!);
             return appVeyor.GetProjectLastBuild(accountName, projectSlug).Result;
         }
 
@@ -151,11 +151,11 @@ namespace Cake.AppVeyor
         /// <param name="branch">The branch.</param>
         /// <param name="beforeBuildId">The build identifier to start looking for a successful build after.</param>
         [CakeMethodAlias]
-        public static AppVeyorProjectBuild AppVeyorProjectLastSuccessfulBuild(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug, string branch = null, int? beforeBuildId = null)
+        public static AppVeyorProjectBuild? AppVeyorProjectLastSuccessfulBuild(this ICakeContext context, AppVeyorSettings settings, string accountName, string projectSlug, string? branch = null, int? beforeBuildId = null)
         {
-            var appVeyor = AppVeyorClient.Create(settings.ApiToken);
+            var appVeyor = AppVeyorClient.Create(settings.ApiToken!);
 
-            AppVeyorProjectBuild lastSuccess = null;
+            AppVeyorProjectBuild? lastSuccess = null;
             int? startBuildId = beforeBuildId;
 
             while (lastSuccess == null)
@@ -169,7 +169,7 @@ namespace Cake.AppVeyor
 
                 foreach (var build in history.Builds)
                 {
-                    if (build.Status.Equals("success", StringComparison.OrdinalIgnoreCase))
+                    if (build.Status?.Equals("success", StringComparison.OrdinalIgnoreCase) == true)
                     {
                         lastSuccess = new AppVeyorProjectBuild
                         {
@@ -197,7 +197,7 @@ namespace Cake.AppVeyor
         /// <param name="branch">The branch.</param>
         /// <param name="beforeBuildId">The build identifier to start looking for a successful build after.</param>
         [CakeMethodAlias]
-        public static AppVeyorProjectBuild AppVeyorProjectLastSuccessfulBuild(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string branch = null, int? beforeBuildId = null)
+        public static AppVeyorProjectBuild? AppVeyorProjectLastSuccessfulBuild(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string? branch = null, int? beforeBuildId = null)
         {
             return AppVeyorProjectLastSuccessfulBuild(context, new AppVeyorSettings { ApiToken = appVeyorApiToken }, accountName, projectSlug, branch, beforeBuildId);
         }
@@ -245,7 +245,7 @@ namespace Cake.AppVeyor
         /// <param name="branch">The branch.</param>
         /// <param name="environmentVariables">The environment variables.</param>
         [CakeMethodAlias]
-        public static AppVeyorBuild AppVeyorStartBuildLatestCommit(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string branch = null, Dictionary<string, string> environmentVariables = null)
+        public static AppVeyorBuild AppVeyorStartBuildLatestCommit(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string? branch = null, Dictionary<string, string>? environmentVariables = null)
         {
             var appVeyor = AppVeyorClient.Create(appVeyorApiToken);
             return appVeyor.StartBuildLatestCommit(new AppVeyorBuildRequestLatestCommit
@@ -358,7 +358,7 @@ namespace Cake.AppVeyor
         /// <param name="buildJobId">The build job identifier (optional).</param>
         /// <param name="environmentVariables">The environment variables.</param>
         [CakeMethodAlias]
-        public static AppVeyorDeployment AppVeyorStartDeployment(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string environmentName, string buildVersion, string buildJobId = null, Dictionary<string, string> environmentVariables = null)
+        public static AppVeyorDeployment AppVeyorStartDeployment(this ICakeContext context, string appVeyorApiToken, string accountName, string projectSlug, string environmentName, string buildVersion, string? buildJobId = null, Dictionary<string, string>? environmentVariables = null)
         {
             var appVeyor = AppVeyorClient.Create(appVeyorApiToken);
             return appVeyor.StartDeployment(new AppVeyorStartDeploymentRequest

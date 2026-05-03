@@ -7,7 +7,7 @@ namespace Cake.AppVeyor.Tests
     {
         private const string YOUR_APPVEYOR_API_TOKEN = "{APPVEYOR_APITOKEN}";
 
-        private static string appVeyorApiToken;
+        private static string? appVeyorApiToken;
 
         public static string AppVeyorApiToken
         {
